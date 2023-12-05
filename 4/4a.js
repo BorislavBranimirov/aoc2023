@@ -11,10 +11,11 @@ for (const line of lines) {
   const [winning, own] = nums
     .split(' | ')
     .map((numList) => numList.trim().split(/\s+/));
+  const winningSet = new Set(winning);
 
   let matches = 0;
   for (const num of own) {
-    if (winning.includes(num)) matches++;
+    if (winningSet.has(num)) matches++;
   }
 
   if (matches > 0) {
